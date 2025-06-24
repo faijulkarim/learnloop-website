@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  /> 
+  <title>Best Learning Platform in Bangladesh | LearnLoop</title>
+<style>
+  .logo {
+  position: absolute;
+  top: 20px;
+  left: 30px; /* যদি ডান কোনায় চাস, তাহলে left এর জায়গায় right দে */
+  z-index: 1000;
+}
+
+.logo img {
+  width: 100px; /* প্রয়োজনে সাইজ অ্যাডজাস্ট কর */
+  height: auto;
+}
+    body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+    .form_box {
+      display: none;
+    }
+
+    .form_box.active {
+      display: block;
+    }
+
+    .input_box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input_box input {
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input_box label {
+      position: absolute;
+      left: 12px;
+      top: -10px;
+      background: #fff;
+      padding: 0 5px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .input_box i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .reg_link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .reg_link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .reg_link a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+    body {
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .container {
+      padding: 20px;
+      margin-top: 50px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .logo {
+      top: 10px;
+      left: 10px;
+    }
+
+    .logo img {
+      width: 80px;
+    }
+
+    .btn {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .input_box input {
+      padding: 10px 35px 10px 10px;
+    }
+
+    .input_box label {
+      font-size: 12px;
+    }
+
+    .input_box i {
+      right: 8px;
+    }
+  }
+@media (max-width: 768px) {
+  body {
+    align-items: center;  /* flex-start থেকে center */
+    padding: 30px;
+  }
+
+  .container {
+    max-width: 400px;
+    padding: 30px;
+    margin-top: 20px; /* উপরের জায়গা */
+  }
+
+  .logo {
+    top: 15px;
+    left: 15px;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .input_box input {
+    padding: 11px 38px 11px 11px;
+  }
+
+  .input_box label {
+    font-size: 13px;
+  }
+
+  .input_box i {
+    right: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: center; /* flex-start থেকে center এ পরিবর্তন */
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 300px;
+    padding: 20px;
+    margin-top: 0; /* উপরে স্পেস কমাতে */
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .logo {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .input_box input {
+    padding: 10px 35px 10px 10px;
+  }
+
+  .input_box label {
+    font-size: 12px;
+  }
+
+  .input_box i {
+    right: 8px;
+  }
+}
+@media (max-width: 400px) {
+  body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: left; 
+}
+
+.input_box input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left; 
+}
+
+h2 {
+  text-align: center;
+}
+
+  .logo {
+    top: 8px;
+    left: 8px;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 9px;
+  }
+
+  .input_box label {
+    font-size: 11px;
+  }
+
+  .input_box i {
+    right: 7px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <div class="logo">
+    <a href="index.html"><img src="/img/logo.png" alt="Brand Logo"></a>
+  </div>
+<div class="container">
+  
+  <!-- Login Form -->
+<form onsubmit="handleLogin(event)">
+
+  <!-- Login Form -->
+  <div class="form_box login active" id="loginForm">
+    <h2>Login</h2>
+    <form>
+      <div class="input_box">
+        <input type="text" id="loginUsername" required />
+        <label for="loginUsername">Username</label>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="loginPassword" required />
+        <label for="loginPassword">Password</label>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="input_box">
+        <button type="submit" class="btn">Login</button>
+      </div>
+
+      <div class="reg_link">
+        <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+<!-- Signup Form -->
+<form onsubmit="handleRegister(event)">
+
+  <!-- Signup Form -->
+  <div class="form_box signup" id="signupForm">
+    <h2>Registration</h2>
+    <form>
+      <div class="input_box">
+        <input type="text" id="signupUsername" required />
+        <label for="signupUsername">Username</label>
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="email" id="signupEmail" required />
+        <label for="signupEmail">Email</label>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="signupPassword" required />
+        <label for="signupPassword">Password</label>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="confirmPassword" required />
+        <label for="confirmPassword">Confirm Password</label>
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="input_box">
+        <button type="submit" class="btn">Register</button>
+      </div>
+
+      <div class="reg_link">
+        <p>Already a member? <a href="#" onclick="toggleForms()">Log In</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function toggleForms() {
+    document.getElementById("loginForm").classList.toggle("active");
+    document.getElementById("signupForm").classList.toggle("active");
+  }
+
+    function toggleForms() {
+    document.getElementById("loginForm").classList.toggle("active");
+    document.getElementById("signupForm").classList.toggle("active");
+  }
+
+  // ইউজার রেজিস্টার করলে ডেটা সেভ করে লগইন ফর্মে পাঠানো
+  function handleRegister(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("signupUsername").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      alert("Password & Confirm Password do not match!");
+      return;
+    }
+
+    // localStorage এ ইউজারের ডেটা সংরক্ষণ
+    const user = {
+      username,
+      email,
+      password
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Registration successful! Now login.");
+
+    // রেজিস্টার হওয়ার পর লগইন ফর্ম দেখাও
+    toggleForms();
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!storedUser) {
+      alert("No user found. Please register first.");
+      return;
+    }
+
+    if (username === storedUser.username && password === storedUser.password) {
+      // ইউজার লগইন সফল হলে লগইন স্টেট ধরে রাখো
+      localStorage.setItem("isLoggedIn", "true");
+
+      alert("Login successful! Redirecting to dashboard...");
+      window.location.href = "dashboard.html"; // তোমার ড্যাশবোর্ড পেজ লিংক
+    } else {
+      alert("Invalid credentials!");
+    }
+  }
+
+  // পেজ রিলোড হলে চেক করো ইউজার লগইন আছে কি না
+  window.onload = function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true" && window.location.pathname !== "/dashboard.html") {
+      window.location.href = "dashboard.html"; // যদি লগইন থাকে, সরাসরি ড্যাশবোর্ডে
+    }
+  };
+</script>
+
+</body>
+</html>
